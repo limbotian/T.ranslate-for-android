@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<litepal>
+    <dbname value="T_ranslate"/>
+    <version value="6"/>
+    <list>
+        <mapping class="com.tian.translate.model.TextItem"/>
+        <mapping class="com.tian.translate.model.Language"/>
+    </list>
+    <storage value="routon/litePal/db" />
+</litepal>
