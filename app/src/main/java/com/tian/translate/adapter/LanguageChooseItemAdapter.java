@@ -1,18 +1,12 @@
 package com.tian.translate.adapter;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.tian.translate.R;
 import com.tian.translate.model.Language;
-import com.tian.translate.model.TextItem;
 import com.tian.translate.myInterface.RefreshLanguage;
 
 import java.util.List;

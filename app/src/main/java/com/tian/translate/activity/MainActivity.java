@@ -4,7 +4,6 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -16,12 +15,10 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -39,7 +36,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import com.tian.translate.MyApplication;
 import com.tian.translate.R;
 import com.tian.translate.adapter.LanguageChooseItemAdapter;
 import com.tian.translate.adapter.TextItemAdapter;
@@ -64,6 +60,7 @@ import io.reactivex.functions.Consumer;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public final static String ObjectKey = "detailObject";
     private List<TextItem> listViews = new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshLayout;
     private DrawerLayout drawer;
@@ -120,7 +117,10 @@ public class MainActivity extends BaseActivity
 
         @Override
         public void toDetail(TextItem textItem) {
-            DetailActivity.startDetailActivity(MainActivity.this,textItem);
+            Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+            intent.putExtra(MainActivity.ObjectKey,textItem);
+            startActivityForResult(intent, 1);
+            //DetailActivity.startDetailActivity(MainActivity.this,textItem);
         }
     };
     private AlertDialog languageChooseDialog;

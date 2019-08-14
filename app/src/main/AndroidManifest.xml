@@ -24,17 +24,17 @@
         <activity
             android:name=".activity.AboutActivity"
             android:label="@string/title_activity_about"
-            android:launchMode="singleInstance"
+            android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.SettingActivity"
             android:label="@string/title_activity_setting"
-            android:launchMode="singleInstance"
+            android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.FavoritesActivity"
             android:label="@string/title_activity_favorites"
-            android:launchMode="singleInstance"
+            android:launchMode="standard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MainActivity"
