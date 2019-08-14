@@ -6,18 +6,26 @@
 
     <Button
         android:id="@+id/language_from"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:focusableInTouchMode="true"
+        android:background="#00000000"
         android:focusable="true"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <Button
+        android:layout_margin="10dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:gravity="center"
+        android:focusableInTouchMode="true"
+        android:layout_gravity="center"
         android:background="@drawable/change_language_right"/>
     <Button
         android:id="@+id/language_to"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:focusableInTouchMode="true"
+        android:background="#00000000"
         android:focusable="true" />
 </LinearLayout>

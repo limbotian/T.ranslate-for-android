@@ -37,4 +37,12 @@
         "Bold, graphic, intentional.\n\n"
     </string>
     <string name="no_network">断网了DD</string>
+    <string name="auto">自动</string>
+    <string name="zh">中文</string>
+    <string name="en">英文</string>
+    <string name="jp">日语</string>
+    <string name="cht">繁体中文</string>
+    <string name="kor">韩语</string>
+    <string name="fra">法语</string>
+    <string name="de">德语</string>
 </resources>

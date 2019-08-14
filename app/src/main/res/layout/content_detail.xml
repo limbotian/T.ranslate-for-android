@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.DetailActivity"
     tools:showIn="@layout/activity_detail">
@@ -11,12 +12,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:minHeight="200dp"
             app:cardCornerRadius="20dp">
 
@@ -37,7 +38,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="中文"
                         android:textColor="@color/colorAccent"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -49,9 +49,12 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/dst_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/large_text" />
+                        android:lineSpacingExtra="2dp"
+                        android:minHeight="100dp"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -79,10 +82,17 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:background="@drawable/ic_arrow_downward_black_24dp"
+            android:gravity="center" />
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:minHeight="200dp"
             app:cardCornerRadius="20dp">
 
@@ -103,7 +113,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:text="英语"
                         android:textColor="@color/colorAccent"
                         android:textSize="18sp" />
                 </LinearLayout>
@@ -115,9 +124,12 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/src_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/large_text" />
+                        android:lineSpacingExtra="2dp"
+                        android:minHeight="100dp"
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -143,7 +155,6 @@
                         android:gravity="center" />
                 </LinearLayout>
             </LinearLayout>
-
 
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>

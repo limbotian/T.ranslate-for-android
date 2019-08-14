@@ -15,7 +15,11 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -100,7 +104,7 @@ public class MainActivity extends BaseActivity
         @Override
         public void ItemFavorites(TextItem textItem) {
             initListItems();
-            if (vibrator != null){
+            if (vibrator != null) {
                 vibrator.vibrate(30);
                 initListItems();
             }
@@ -109,7 +113,7 @@ public class MainActivity extends BaseActivity
         @Override
         public void deleteItem(TextItem textItem) {
             textItem.delete();
-            if (vibrator != null){
+            if (vibrator != null) {
                 vibrator.vibrate(50);
                 initListItems();
             }
@@ -118,7 +122,7 @@ public class MainActivity extends BaseActivity
         @Override
         public void toDetail(TextItem textItem) {
             Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-            intent.putExtra(MainActivity.ObjectKey,textItem);
+            intent.putExtra(MainActivity.ObjectKey, textItem);
             startActivityForResult(intent, 1);
             //DetailActivity.startDetailActivity(MainActivity.this,textItem);
         }
@@ -126,6 +130,7 @@ public class MainActivity extends BaseActivity
     private AlertDialog languageChooseDialog;
     private Vibrator vibrator;
 
+    @SuppressLint("ClickableViewAccessibility")
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -330,17 +335,21 @@ public class MainActivity extends BaseActivity
         listViews.clear();
         listViews.addAll(LitePal.findAll(TextItem.class));
         Collections.reverse(listViews);
-        if (myListViewAdapter!=null){
+        if (myListViewAdapter != null) {
             myListViewAdapter.notifyDataSetChanged();
         }
     }
 
     private void getTranslate() {
-        if (isNetworkConnected(MainActivity.this)){
+        if (isNetworkConnected(MainActivity.this)) {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    TranslateHttpSendParm parm = new TranslateHttpSendParm(contentText.getText().toString(), currentFromLanguage == null ? (String) SharedPreferencesUtil.getData("currentFromLanguage", "auto") : currentFromLanguage.getCode(), currentToLanguage == null ? (String) SharedPreferencesUtil.getData("currentToLanguage", "en") : currentToLanguage.getCode());
+                    TranslateHttpSendParm parm = new TranslateHttpSendParm(contentText.getText().toString(),
+                            currentFromLanguage == null ? (String) SharedPreferencesUtil.getData("currentFromLanguage", "auto")
+                                    : currentFromLanguage.getCode(), currentToLanguage == null
+                            ? (String) SharedPreferencesUtil.getData("currentToLanguage", "en")
+                            : currentToLanguage.getCode());
                     translate = GetTranslateResult.translate(parm);
                     runOnUiThread(new Runnable() {
                         @Override
@@ -356,7 +365,7 @@ public class MainActivity extends BaseActivity
                     });
                 }
             }).start();
-        }else{
+        } else {
             showLongToast(getText(R.string.no_network).toString());
         }
     }

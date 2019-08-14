@@ -34,12 +34,14 @@ public class GetTranslateResult {
             textItem = new TextItem();
             textItem.setLanguageFrom(translateHttpSendResult.getFrom());
             textItem.setLanguageTo(translateHttpSendResult.getTo());
-            textItem.setSrcText(translateHttpSendResult.getTrans_result().get(0).getSrc());
             StringBuilder contentText = new StringBuilder();
+            StringBuilder srcText = new StringBuilder();
             List<ResultDetail> resultDetails = translateHttpSendResult.getTrans_result();
             for (ResultDetail resultDetail : resultDetails) {
+                srcText.append(resultDetail.getSrc()).append("\n");
                 contentText.append(resultDetail.getDst()).append("\n");
             }
+            textItem.setSrcText(srcText.toString());
             textItem.setContentText(contentText.toString());
         }
         return textItem;

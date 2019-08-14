@@ -39,8 +39,7 @@
                         android:id="@+id/language_from_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="zh"
-                        android:textColor="#757575" />
+                        android:textColor="?attr/colorAccent" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -53,8 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:text="en"
-                        android:textColor="#757575" />
+                        android:textColor="?attr/colorAccent" />
                 </LinearLayout>
 
                 <LinearLayout
